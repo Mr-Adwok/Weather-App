@@ -15,11 +15,24 @@ async def get_city_info(city:str):
     async with httpx.AsyncClient() as conn:
         response = await conn.get(url)
         json_data = response.json()
+        description = json_data['description']
+        datetime = json_data.get('datetime')
+        address = json_data.get('address')
+        latitude = json_data.get('latitude');
+        longitude = json_data.get('longitude')
+
         print(response.status_code)
 
 
     # print(type(get_city_info,"Hello tere "))
-    return {"response":json_data}
+    return {"response":{
+        'address':address,
+        'description':description,
+        'datetime':datetime,
+        'latitude':latitude,
+        'longitude':longitude
+
+    }}
 
 
 
