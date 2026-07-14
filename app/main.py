@@ -1,12 +1,22 @@
+# standart library
+
 from fastapi import FastAPI
-from schemas.schema import Input
-from routes.city_route import weatherRouter
+
+
+
+
+
+from app.schemas.schema import Input
+from app.routes.city_route import weatherRouter
+from app.services.service  import measure_execution_time
 
 app = FastAPI()
 
 
 @app.get('/')
+@measure_execution_time
 async def root():
+    # print(WeatherRequestApp.requestNo,"Hello am number of requests")
     return {"message":'Hello world'}
 
 @app.post('/ok')
