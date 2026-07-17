@@ -1,2 +1,5 @@
 .env
 /Wvenv
+/app/text.txt
+__pycache__
+locustfile.py
